@@ -269,7 +269,7 @@ export default function Dashboard() {
                   <span style={{
                     position: 'absolute', top: 3, right: 3,
                     width: 13, height: 13,
-                    background: '#f59e0b',
+                    background: '#000',
                     border: '1px solid #101216',
                     borderRadius: '50%',
                     fontSize: 8, fontWeight: 700, color: '#000',
