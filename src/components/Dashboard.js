@@ -269,7 +269,7 @@ export default function Dashboard() {
                   <span style={{
                     position: 'absolute', top: 3, right: 3,
                     width: 13, height: 13,
-                    background: '#000',
+                    background: '#f59e0b',
                     border: '1px solid #101216',
                     borderRadius: '50%',
                     fontSize: 8, fontWeight: 700, color: '#000',
@@ -382,7 +382,7 @@ export default function Dashboard() {
                 style={{
                   display: 'flex', gap: 7,
                   overflowX: 'auto', overflowY: 'hidden',
-                  flex: '0 0 35%',
+                  flex: '0 0 50%',
                   alignItems: 'stretch',
                   paddingBottom: 2
                 }}>
