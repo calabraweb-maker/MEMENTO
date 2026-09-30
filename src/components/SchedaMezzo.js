@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { supabase } from '../supabase';
+
 
 const COLORI_STATO = {
   'BUONO': '#4ade80', 'MEDIO': '#228b22', 'BASSO': '#ff8c00',
@@ -86,26 +87,26 @@ export default function SchedaMezzo({ idMezzo, onChiudi, onAggiorna, cantiereId 
   const [motivazioneElimina, setMotivazioneElimina] = useState('');
   const fileRef = useRef();
 
-  useEffect(() => {
-  async function caricaDati() {
-    setLoading(true);
+  const caricaDati = useCallback(async () => {
+  setLoading(true);
 
-    const [{ data: m }, { data: e }, { data: n }, { data: a }] = await Promise.all([
-      supabase.from('mezzi').select('*').eq('id', idMezzo).single(),
-      supabase.from('eventi').select('*').eq('id_mezzo', idMezzo).order('created_at', { ascending: false }),
-      supabase.from('cronologia_mezzi').select('*').eq('id_mezzo', idMezzo).order('created_at', { ascending: false }),
-      supabase.from('allegati').select('*').eq('id_mezzo', idMezzo).order('created_at', { ascending: false })
-    ]);
+  const [{ data: m }, { data: e }, { data: n }, { data: a }] = await Promise.all([
+    supabase.from('mezzi').select('*').eq('id', idMezzo).single(),
+    supabase.from('eventi').select('*').eq('id_mezzo', idMezzo).order('created_at', { ascending: false }),
+    supabase.from('cronologia_mezzi').select('*').eq('id_mezzo', idMezzo).order('created_at', { ascending: false }),
+    supabase.from('allegati').select('*').eq('id_mezzo', idMezzo).order('created_at', { ascending: false })
+  ]);
 
-    setMezzo(m);
-    setEventi(e || []);
-    setNote(n || []);
-    setAllegati(a || []);
-    setLoading(false);
-  }
-
-  if (idMezzo) caricaDati();
+  setMezzo(m);
+  setEventi(e || []);
+  setNote(n || []);
+  setAllegati(a || []);
+  setLoading(false);
 }, [idMezzo]);
+
+useEffect(() => {
+  if (idMezzo) caricaDati();
+}, [idMezzo, caricaDati]);
 
 
   function abilitaModifica() {
