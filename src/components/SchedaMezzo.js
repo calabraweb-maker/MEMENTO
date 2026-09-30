@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { supabase } from '../supabase';
-
 
 const COLORI_STATO = {
   'BUONO': '#4ade80', 'MEDIO': '#228b22', 'BASSO': '#ff8c00',
