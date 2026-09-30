@@ -347,7 +347,8 @@ export default function Dashboard() {
                 style={{
                   display: 'flex', gap: 7,
                   overflowX: 'auto', overflowY: 'hidden',
-                  flex: '0 0 62%',
+                  flex: '1 1 0',
+                  minHeight: 0,
                   alignItems: 'stretch',
                   paddingBottom: 2
                 }}>
@@ -382,7 +383,8 @@ export default function Dashboard() {
                 style={{
                   display: 'flex', gap: 7,
                   overflowX: 'auto', overflowY: 'hidden',
-                  flex: '0 0 50%',
+                  flex: '1 1 0',
+                  minHeight: 0,
                   alignItems: 'stretch',
                   paddingBottom: 2
                 }}>
