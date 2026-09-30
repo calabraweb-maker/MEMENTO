@@ -37,6 +37,7 @@ export default function Dashboard() {
   const [mezzoSelezionato, setMezzoSelezionato] = useState(null);
   const [nuovoMezzo, setNuovoMezzo] = useState(false);
   const [pagina, setPagina] = useState('dashboard');
+  const navigazioneBrowser = useRef(false);
   const [spostamento, setSpostamento] = useState(null);
   const [motivazione, setMotivazione] = useState('');
   const [salvando, setSalvando] = useState(false);
@@ -57,6 +58,40 @@ export default function Dashboard() {
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
+  useEffect(() => {
+  window.history.replaceState(
+    { pagina: 'dashboard' },
+    '',
+    window.location.pathname
+  );
+
+  const handlePopState = (event) => {
+    navigazioneBrowser.current = true;
+    setPagina(event.state?.pagina || 'dashboard');
+  };
+
+  window.addEventListener('popstate', handlePopState);
+
+  return () => {
+    window.removeEventListener('popstate', handlePopState);
+  };
+}, []);
+
+useEffect(() => {
+  if (navigazioneBrowser.current) {
+    navigazioneBrowser.current = false;
+    return;
+  }
+
+  if (pagina !== 'dashboard') {
+    window.history.pushState(
+      { pagina },
+      '',
+      window.location.pathname
+    );
+  }
+}, [pagina]);
+
 
   async function caricaDati() {
     setLoading(true);
