@@ -21,7 +21,7 @@ const MENU_VOCI = [
 ];
 
 // Altezze fisse header e label sezioni
-const H_HEADER = 62;
+const H_HEADER = 100;
 const H_LABEL = 22;
 const GAP = 10;
 const PADDING_V = 12;
