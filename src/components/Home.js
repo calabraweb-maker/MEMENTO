@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { supabase } from '../supabase';
+
 
 const MENU_VOCI = [
   { id: 'gestione_flotta', icona: '▶', titolo: 'Gestione Flotta', gruppo: 'REPARTI' },
