@@ -13,6 +13,7 @@ const stileBtnP = { padding: '9px 14px', borderRadius: 5, fontSize: 11, fontWeig
 const stileInput = { width: '100%', background: '#12151a', color: '#fff', border: '1px solid #3b414a', borderRadius: 5, padding: '9px 10px', fontSize: 12, boxSizing: 'border-box', fontFamily: 'inherit', marginBottom: 10 };
 
 const MENU_VOCI = [
+  { id: 'home',        icona: '▶', titolo: '← Home',                     gruppo: 'NAVIGA' },
   { id: 'elenco',      icona: '▶', titolo: 'Elenco mezzi',               gruppo: 'VISUALIZZA' },
   { id: 'scadenzario', icona: '▶', titolo: 'Scadenzario',                gruppo: 'VISUALIZZA' },
   { id: 'nuovo_mezzo', icona: '▶', titolo: 'Crea nuovo mezzo',           gruppo: 'CREA' },
@@ -29,7 +30,7 @@ const PADDING_V = 12;
 // = 100vh - header - (padding top + bottom) - (label CDC + gap) - (label OFF + gap) - gap tra CDC e OFF
 // CDC prende 62%, OFF 38%
 
-export default function Dashboard() {
+export default function Dashboard({ onTornaHome }) {
   const [mezzi, setMezzi] = useState([]);
   const [centri, setCentri] = useState([]);
   const [officine, setOfficine] = useState([]);
@@ -190,6 +191,7 @@ useEffect(() => {
 
   function handleVoceMenu(id) {
     setMenuAperto(false);
+    if (id === 'home') { if (onTornaHome) onTornaHome(); return; }
     if (id === 'elenco') setPagina('elenco');
     if (id === 'scadenzario') setPagina('scadenzario');
     if (id === 'nuovo_mezzo') setNuovoMezzo(true);
