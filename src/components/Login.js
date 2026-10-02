@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import logo from '../logo.svg';
+
 
 const UTENTI = [
   { id: 'adm', password: 'adm', nome: 'Amministratore' }
@@ -38,12 +40,17 @@ export default function Login({ onLogin }) {
       }}>
         {/* LOGO */}
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <div style={{
-            width: 52, height: 52, borderRadius: 10,
-            background: '#e5e7eb', color: '#111318',
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            fontWeight: 800, fontSize: 22, marginBottom: 14
-          }}>GF</div>
+          <img
+  src={logo}
+  alt="Logo Memento"
+  style={{
+    width: 80,
+    height: 80,
+    objectFit: 'contain',
+    marginBottom: 14
+  }}
+/>
+
           <div style={{ fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: 2 }}>MEMENTO</div>
           <div style={{ fontSize: 11, color: '#B06700', textTransform: 'uppercase', letterSpacing: 1, marginTop: 4 }}>CSM</div>
         </div>
