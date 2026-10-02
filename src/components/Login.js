@@ -95,7 +95,7 @@ export default function Login({ onLogin }) {
         </button>
 
         <div style={{ marginTop: 20, textAlign: 'center', color: '#3a3f47', fontSize: 10 }}>
-          MEMENTO © 2025 — Gestione Flotta
+          MEMENTO © 2026 — Gestione Flotta
         </div>
       </div>
     </div>
