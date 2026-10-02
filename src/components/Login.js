@@ -45,7 +45,7 @@ export default function Login({ onLogin }) {
             fontWeight: 800, fontSize: 22, marginBottom: 14
           }}>GF</div>
           <div style={{ fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: 2 }}>MEMENTO</div>
-          <div style={{ fontSize: 11, color: '#B06700', textTransform: 'uppercase', letterSpacing: 1, marginTop: 4 }}>Gestione Flotta</div>
+          <div style={{ fontSize: 11, color: '#B06700', textTransform: 'uppercase', letterSpacing: 1, marginTop: 4 }}>CSM</div>
         </div>
 
         {/* FORM */}
